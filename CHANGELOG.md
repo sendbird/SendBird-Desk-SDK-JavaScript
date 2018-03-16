@@ -1,4 +1,4 @@
 ## Change Log
 
-### v0.10.0(Mar 16, 2018)
-* Stabilization.
+### v1.0.0-zendesk(Mar 16, 2018)
+* Zendesk-integrated version release.
