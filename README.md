@@ -38,7 +38,8 @@ Authentication in SendBird Desk is done by calling `SendBirdDesk.authenticate()`
 const sb = new SendBird({ appId : 'YOUR_APP_ID' });
 sb.connect(userId, accessToken, (res, err) => {
     if(err) throw err;
-    SendBirdDesk.authenticate(userId, accessToken, (res, err) => {
+    const desk = new SendBirdDesk();
+    desk.authenticate(userId, accessToken, (res, err) => {
         if(err) throw err;    
         // Now you can use Desk SDK later on
     });
