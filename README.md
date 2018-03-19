@@ -38,8 +38,7 @@ Authentication in SendBird Desk is done by calling `SendBirdDesk.authenticate()`
 const sb = new SendBird({ appId : 'YOUR_APP_ID' });
 sb.connect(userId, accessToken, (res, err) => {
     if(err) throw err;
-    const desk = new SendBirdDesk();
-    desk.authenticate(userId, accessToken, (res, err) => {
+    SendBirdDesk.authenticate(userId, accessToken, (res, err) => {
         if(err) throw err;    
         // Now you can use Desk SDK later on
     });
@@ -75,7 +74,7 @@ Retrieving ticket list is essential for inbox. SendBird Desk SDK provides `Ticke
 ```js
 Ticket.getOpenedList(offset, (res, err) => {
     const tickets = res;
-    // offset += tickets.size(); for the next tickets.
+    // offset += tickets.length; for the next tickets.
     // here is to display tickets on inbox.
 });
 ```
@@ -83,7 +82,7 @@ Ticket.getOpenedList(offset, (res, err) => {
 ```js
 Ticket.getClosedList(offset, (res, err) => {
     const tickets = res;
-    // offset += tickets.size(); for the next tickets.
+    // offset += tickets.length; for the next tickets.
     // here is to display tickets on inbox.
 });
 ```
