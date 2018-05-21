@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.1
+ * Type Definitions for SendBird Desc SDK v1.0.2
  * homepage: https://sendbird.com/
  */
 declare const SendBirdDesk: SendBirdDeskStatic;

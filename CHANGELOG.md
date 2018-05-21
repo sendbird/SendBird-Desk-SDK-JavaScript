@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.0.2(May 21, 2018)
+* apply ticket assignment update
+
 ### v1.0.1(Mar 30, 2018)
 * add SendBirdDesk.init().
 * add SendBirdDesk.isDeskChannel(channel).
