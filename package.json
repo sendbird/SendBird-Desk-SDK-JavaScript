@@ -1,0 +1,23 @@
+{
+  "name": "sendbird-desk",
+  "version": "1.0.2",
+  "description": "SendBird Desk SDK Integration Guide for JavaScript =========== SendBird Desk is a chat customer service platform built on SendBird SDK and API.",
+  "main": "SendBird.Desk.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smilefam/SendBird-Desk-SDK-JavaScript.git"
+  },
+  "keywords": ["sendbird", "sendbird.com", "messaging", "chat", "js"],
+  "author": "SendBird <support@sendbird.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/smilefam/SendBird-Desk-SDK-JavaScript/issues"
+  },
+  "homepage": "https://sendbird.com",
+  "dependencies": {
+    "sendbird": "^3.0.67"
+  }
+}
