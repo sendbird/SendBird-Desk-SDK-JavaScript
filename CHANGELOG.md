@@ -1,5 +1,8 @@
 ## Change Log
 
+### v1.0.4(July 18, 2018)
+* add setApiHost to customize host.
+
 ### v1.0.3(July 4, 2018)
 * correct package.json to fix library path.
 
