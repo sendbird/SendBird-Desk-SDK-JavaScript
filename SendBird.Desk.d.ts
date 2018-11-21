@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.4
+ * Type Definitions for SendBird Desc SDK v1.0.5
  * homepage: https://sendbird.com/
  */
 declare const SendBirdDesk: SendBirdDeskStatic;
@@ -21,7 +21,7 @@ interface SendBirdDeskStatic {
   Message: MessageStatic;
   Error: SendBirdDeskErrorStatic;
 
-  init();
+  init(SendBird: Object);
   authenticate(userId: String, callback: Callback);
   authenticate(userId: String, accessToken: String, callback: Callback);
   isDeskChannel(channel: GroupChannel): Boolean;
