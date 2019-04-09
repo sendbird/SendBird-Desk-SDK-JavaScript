@@ -19,5 +19,6 @@
   "homepage": "https://sendbird.com",
   "dependencies": {
     "sendbird": "^3.0.55"
-  }
+  },
+  "typings": "SendBird.Desk.d.ts"
 }
