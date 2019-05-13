@@ -104,7 +104,7 @@ You can check out these messages in `ChannelHandler.onMessageReceived()`.
 
 ## Rich messages
 
-Rich message is a special message that holds custom content. You can distinguish the rich message by checking `message.customType` which is set to `SENDBIRD_DESK_RIGH_MESSAGE`. Currently Desk SDK provides the following types of rich message.
+Rich message is a special message that holds custom content. You can distinguish the rich message by checking `message.customType` which is set to `SENDBIRD_DESK_RICH_MESSAGE`. Currently Desk SDK provides the following types of rich message.
 
 - **`Confirm end of chat`** message notifies that the agent sent a confirm-end-of-chat request. When the user agrees with the closure, the ticket would be closed.
 - **`URL preview`** message contains web URL which is filled with image and description.
