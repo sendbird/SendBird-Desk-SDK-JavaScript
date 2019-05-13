@@ -1,6 +1,6 @@
 {
   "name": "sendbird-desk",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "SendBird Desk SDK Integration Guide for JavaScript =========== SendBird Desk is a chat customer service platform built on SendBird SDK and API.",
   "main": "SendBird.Desk.min.js",
   "scripts": {

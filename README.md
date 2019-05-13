@@ -52,7 +52,7 @@ Now your customers are ready to create tickets and start inquiry with your agent
 
 Creating a new ticket is as simple as calling `Ticket.create()`. Once you create the ticket, you can access to created ticket and channel in callback. Channel object can be found at `ticket.channel` so that you can send messages to the channel. For more information in sending messages to channel, see [SendBird SDK guide docs](https://docs.sendbird.com/android#group_channel_3_sending_messages).
 
-> Notice that the ticket could be assigned to the agents only when customer sends at least one message to the ticket. Otherwise, agent cannot see the ticket.
+> Note: Notice that the ticket could be assigned to the agents only when customer sends at least one message to the ticket. Otherwise, agent cannot see the ticket.
 
 ```js
 Ticket.create(ticketTitle, userName, (ticket, err) =>
@@ -60,6 +60,8 @@ Ticket.create(ticketTitle, userName, (ticket, err) =>
     // ticket.channel is the channel object
 });
 ```
+
+> Note: `Ticket.create()` has 2 more parameters `groupKey` and `customField`. The values could be evaluated when a ticket is created though it's used only in Dashboard currently. `groupKey` is the key of an agent group so that the ticket is assigned to the agents in that group. `customField` holds customizable data for the individual ticket.
 
 ## Count of opened tickets
 When you need to display opened ticket count in your application, use `Ticket.getOpenCount()`.
@@ -87,6 +89,8 @@ Ticket.getClosedList(offset, (res, err) => {
     // here is to display tickets on inbox.
 });
 ```
+
+> Note: Once you set `customField` to tickets, you can put `customFieldFilter` to `getOpenedList()` and `getClosedList()` in order to filter the tickets by `customField` values.
 
 ## Handling ticket event
 SendBird Desk SDK uses predefined AdminMessage custom type which can be derived by calling `message.customType`. Custom type for Desk AdminMessage is set to `SENDBIRD_DESK_ADMIN_MESSAGE_CUSTOM_TYPE`. And there are sub-types which indicate ticket events: assign, transfer, and close. Each event type is located in `message.data` which looks like below.

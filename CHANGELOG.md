@@ -1,23 +1,28 @@
 ## Change Log
 
+### v1.0.6(May 13, 2019)
+* Added `reopen()` in `Ticket`
+* Added `groupKey` and `customField` parameters to `Ticket.create()`.
+* Added `customFieldFilter` parameter to `getOpenedList()` and `getClosedList()` in `Ticket`.
+
 ### v1.0.5(Nov 23, 2018)
-* added SendBird parameter to SendBirdDesk.init().
-* bug-fix in 'SendBird missing' error at init().
+* Added SendBird parameter to SendBirdDesk.init().
+* Bug-fix in 'SendBird missing' error at init().
 
 ### v1.0.4(July 18, 2018)
-* added setApiHost to customize host.
+* Added setApiHost to customize host.
 
 ### v1.0.3(July 4, 2018)
-* corrected package.json to fix library path.
+* Corrected package.json to fix library path.
 
 ### v1.0.2(May 21, 2018)
-* applied ticket assignment update.
+* Applied ticket assignment update.
 
 ### v1.0.1(Mar 30, 2018)
-* added SendBirdDesk.init().
-* added SendBirdDesk.isDeskChannel(channel).
-* added TypeScript interface - SendBird.Desk.d.ts.
-* added console logger in debug mode.
+* Added SendBirdDesk.init().
+* Added SendBirdDesk.isDeskChannel(channel).
+* Added TypeScript interface - SendBird.Desk.d.ts.
+* Added console logger in debug mode.
 
 ### v1.0.0-zendesk(Mar 16, 2018)
 * Zendesk-integrated version release.
