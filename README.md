@@ -17,7 +17,7 @@ Desk JavaScript SDK provides customer-side integration on your own application, 
   
 ## Installation
 
-Before setup, you need to get SendBird App ID at [SendBird Dashboard](https://dashboard.sendbird.com). For using Desk solution, you may upgrade the plan. For more information, please contact [desk@sendbird.com](mailto:desk@sendbird.com).
+Before setup, you need to get SendBird App ID at [SendBird Dashboard](https://dashboard.sendbird.com). For using Desk solution, you may upgrade the plan. For more information, please contact [sales team](https://sendbird.com/contact-sales).
 
 Installing the Desk SDK is straightforward if you're familiar with npm. Run the following command at the project path.
 ```
