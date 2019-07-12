@@ -61,7 +61,7 @@ Ticket.create(ticketTitle, userName, (ticket, err) =>
 });
 ```
 
-> Note: `Ticket.create()` has 2 more parameters `groupKey` and `customField`. The values could be evaluated when a ticket is created though it's used only in Dashboard currently. `groupKey` is the key of an agent group so that the ticket is assigned to the agents in that group. `customField` holds customizable data for the individual ticket.
+> Note: `Ticket.create()` has 2 more parameters `groupKey` and `customFields`. The values could be evaluated when a ticket is created though it's used only in Dashboard currently. `groupKey` is the key of an agent group so that the ticket is assigned to the agents in that group. `customFields` holds customizable data for the individual ticket.
 
 ## Count of opened tickets
 When you need to display opened ticket count in your application, use `Ticket.getOpenCount()`.
@@ -90,7 +90,7 @@ Ticket.getClosedList(offset, (res, err) => {
 });
 ```
 
-> Note: Once you set `customField` to tickets, you can put `customFieldFilter` to `getOpenedList()` and `getClosedList()` in order to filter the tickets by `customField` values.
+> Note: Once you set `customFields` to tickets, you can put `customFieldFilter` to `getOpenedList()` and `getClosedList()` in order to filter the tickets by `customFields` values.
 
 ## Handling ticket event
 SendBird Desk SDK uses predefined AdminMessage custom type which can be derived by calling `message.customType`. Custom type for Desk AdminMessage is set to `SENDBIRD_DESK_ADMIN_MESSAGE_CUSTOM_TYPE`. And there are sub-types which indicate ticket events: assign, transfer, and close. Each event type is located in `message.data` which looks like below.

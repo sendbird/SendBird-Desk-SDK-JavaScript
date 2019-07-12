@@ -1,8 +1,11 @@
 ## Change Log
 
+### v1.0.7(Jul 12, 2019)
+* Added `customFields` property to `Ticket`.
+
 ### v1.0.6(May 13, 2019)
 * Added `reopen()` in `Ticket`
-* Added `groupKey` and `customField` parameters to `Ticket.create()`.
+* Added `groupKey` and `customFields` parameters to `Ticket.create()`.
 * Added `customFieldFilter` parameter to `getOpenedList()` and `getClosedList()` in `Ticket`.
 
 ### v1.0.5(Nov 23, 2018)

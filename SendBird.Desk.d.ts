@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.6
+ * Type Definitions for SendBird Desc SDK v1.0.7
  * homepage: https://sendbird.com/
  */
 export = SendBirdDesk;
@@ -30,8 +30,7 @@ declare namespace SendBirdDesk {
   type Callback = (res: Object, error: Error) => void;
   type TicketCallback = (ticket: TicketInstance, error: Error) => void;
   type TicketArrayCallback = (list: Array<TicketInstance>, error: Error) => void;
-  
-  
+
   interface AgentStatic {
     new (json: Object): AgentInstance;
   }
@@ -46,7 +45,7 @@ declare namespace SendBirdDesk {
     isStatus(val: String): Boolean;
     clearCache(channelUrl: String): void;
     create(title: String, name: String, callback: TicketCallback): void;
-    create(title: String, name: String, groupKey: String, customField: Object, callback: TicketCallback): void;
+    create(title: String, name: String, groupKey: String, customFields: Object, callback: TicketCallback): void;
     getOpenCount(callback: Callback): void;
     getByChannelUrl(channelUrl: String, callback: TicketCallback): void;
     getOpenedList(offset: Number, callback: TicketArrayCallback): void;
@@ -63,7 +62,7 @@ declare namespace SendBirdDesk {
     ASSIGNED: String;
     OPEN: String;
     CLOSED: String;
-  }
+  };
   interface TicketInstance {
     id: String;
     title: String;
@@ -73,6 +72,7 @@ declare namespace SendBirdDesk {
     customer: Object;
     channel: Object;
     channelUrl: String;
+    customFields: Object;
     updatedAt: Number;
     fetchFromJSON(json: Object): void;
     refresh(callback: TicketCallback): void;
@@ -81,24 +81,23 @@ declare namespace SendBirdDesk {
   type MessageStatic = {
     CustomType: MessageCustomType;
     DataType: MessageDataType;
-    ClosureState : MessageClosureState;
-  }
+    ClosureState: MessageClosureState;
+  };
   type MessageCustomType = {
     RICH_MESSAGE: String;
     ADMIN_MESSAGE: String;
-  }
+  };
   type MessageDataType = {
     TICKET_INQUIRE_CLOSURE: String;
     TICKET_ASSIGN: String;
     TICKET_TRANSFER: String;
     TICKET_CLOSE: String;
     URL_PREVIEW: String;
-  }
+  };
   type MessageClosureState = {
     WAITING: String;
     CONFIRMED: String;
     DECLINED: String;
-  }
+  };
   interface SendBirdDeskErrorStatic {}
 }
-
