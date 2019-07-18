@@ -61,7 +61,22 @@ Ticket.create(ticketTitle, userName, (ticket, err) =>
 });
 ```
 
-> Note: `Ticket.create()` has 2 more parameters `groupKey` and `customFields`. The values could be evaluated when a ticket is created though it's used only in Dashboard currently. `groupKey` is the key of an agent group so that the ticket is assigned to the agents in that group. `customFields` holds customizable data for the individual ticket.
+`Ticket.create()` has 2 more parameters `groupKey` and `customFields`. The values could be evaluated when a ticket is created though it's used only in Dashboard currently. `groupKey` is the key of an agent group so that the ticket is assigned to the agents in that group. `customFields` holds customizable data for the individual ticket. The below is an example.
+
+```js
+Ticket.create(ticketTitle, userName,
+    'cs-team-1', // groupKey
+    {
+        'text': 'hello',
+        'number': 14,
+        'select': 'option2'
+    }, // customFields
+    (ticket, err) => {
+    // Ticket is created with groupKey 'cs-team-1' and customFields.
+});
+```
+
+> Note: each key in `customFields` should be preregistered in Dashboard. Otherwise, the key would be ignored.
 
 ## Count of opened tickets
 When you need to display opened ticket count in your application, use `Ticket.getOpenCount()`.
