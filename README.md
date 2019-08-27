@@ -48,6 +48,22 @@ sb.connect(userId, accessToken, (res, err) => {
   
 Now your customers are ready to create tickets and start inquiry with your agents!
 
+## Setting customer customFields
+
+Customer information could be kept in `customFields`. `setCustomerCustomFields()` in `SendBirdDesk` lets the SDK set the `customFields` of the current customer. The `customFields` columns should be defined in SendBird Dashboard beforehand. Otherwise, the setting would be ignored.
+```js
+SendBirdDesk.setCustomerCustomFields({
+        gender: 'male',
+        age: 20
+    },
+    err => {
+        if (!err) {
+            // customer's customFields is rightly set
+            // (or a certain key could get ignored if the key is not defined yet)
+        }
+    });
+```
+
 ## Creating a new ticket
 
 Creating a new ticket is as simple as calling `Ticket.create()`. Once you create the ticket, you can access to created ticket and channel in callback. Channel object can be found at `ticket.channel` so that you can send messages to the channel. For more information in sending messages to channel, see [SendBird SDK guide docs](https://docs.sendbird.com/android#group_channel_3_sending_messages).
@@ -156,6 +172,44 @@ channelHandler.onMessageUpdated = (channel, message) => {
                     break;
                 case SendBirdDesk.Message.ClosureState.DECLIND:
                     // do something on DECLIND
+                    break;
+            }
+        }
+    });
+}
+```
+
+### Ticket Feedback
+
+If Desk satisfaction feature is on, a message would come after closing the ticket. The message is for getting customer feedback including score and comment. The data of satisfaction form message looks like below.
+
+```js
+{
+    "type": "SENDBIRD_DESK_CUSTOMER_SATISFACTION",
+    "body": {
+        "state": "WAITING" // also can have "CONFIRMED",
+        "customerSatisfactionScore": null, // or a number ranged in [1, 5]
+        "customerSatisfactionComment": null // or a string (optional)
+    }
+}
+```
+
+Once the customer inputs the score and the comment, the data could be submitted by calling `SendBirdDesk.Ticket.submitFeedback(message, score, comment, callback)`. Then updated message is going to be sent in `channelHandler.onMessageUpdate(channel, message)`.
+
+```js
+channelHandler.onMessageUpdated = (channel, message) => {
+    SendBirdDesk.Ticket.getByChannelUrl(channel.url, (ticket, err) => {
+        if(err) throw err;
+        let data = JSON.parse(message.data);
+        const isFeedbackMessage = (data.type === SendBirdDesk.Message.DataType.TICKET_FEEDBACK);
+        if(isFeedbackMessage) {
+            const feedback = data.body;
+            switch(feedback.state) {
+                case SendBirdDesk.Message.FeedbacState.WAITING:
+                    // do something on WAITING
+                    break;
+                case SendBirdDesk.Message.FeedbacState.CONFIRMED:
+                    // do something on CONFIRMED
                     break;
             }
         }

@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.8(Aug 23, 2019)
+* Added `setCustomerCustomFields()` in `SendBirdDesk`.
+* Added `submitFeedback()` in `Ticket`.
+
 ### v1.0.7(Jul 12, 2019)
 * Added `customFields` property to `Ticket`.
 

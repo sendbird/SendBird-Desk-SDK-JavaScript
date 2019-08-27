@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.7
+ * Type Definitions for SendBird Desc SDK v1.0.8
  * homepage: https://sendbird.com/
  */
 export = SendBirdDesk;
@@ -19,6 +19,7 @@ interface SendBirdDeskStatic {
   authenticate(userId: String, accessToken: String, callback: SendBirdDesk.Callback): void;
   isDeskChannel(channel: SendBirdDesk.GroupChannel): Boolean;
   setDebugMode(): void;
+  setCustomerCustomFields(customFields: Object, callback: SendBirdDesk.Callback): void;
 }
 
 declare namespace SendBirdDesk {
@@ -54,6 +55,7 @@ declare namespace SendBirdDesk {
     getClosedList(offset: Number, customFieldFilter: Object, callback: TicketArrayCallback): void;
     getUrlPreview(url: String, callback: Callback): void;
     confirmEndOfChat(message: Object, confirmYN: String, callback: Callback): void;
+    submitFeedback(message: Object, score: Number, comment: String, callback: Callback): void;
     new (json: Object): TicketInstance;
   }
   type TicketStatus = {
@@ -82,6 +84,7 @@ declare namespace SendBirdDesk {
     CustomType: MessageCustomType;
     DataType: MessageDataType;
     ClosureState: MessageClosureState;
+    FeedbackState: MessageFeedbackState;
   };
   type MessageCustomType = {
     RICH_MESSAGE: String;
@@ -92,12 +95,17 @@ declare namespace SendBirdDesk {
     TICKET_ASSIGN: String;
     TICKET_TRANSFER: String;
     TICKET_CLOSE: String;
+    TICKET_FEEDBACK: String;
     URL_PREVIEW: String;
   };
   type MessageClosureState = {
     WAITING: String;
     CONFIRMED: String;
     DECLINED: String;
+  };
+  type MessageFeedbackState = {
+    WAITING: String;
+    CONFIRMED: String;
   };
   interface SendBirdDeskErrorStatic {}
 }
