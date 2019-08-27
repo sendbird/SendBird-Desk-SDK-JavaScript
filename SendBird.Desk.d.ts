@@ -5,78 +5,76 @@
 export = SendBirdDesk;
 export as namespace SendBirdDesk;
 
-declare const SendBirdDesk: SendBirdDeskStatic;
-
 interface SendBirdDeskStatic {
-  version: String;
+  version: string;
   Agent: SendBirdDesk.AgentStatic;
   Ticket: SendBirdDesk.TicketStatic;
   Message: SendBirdDesk.MessageStatic;
   Error: SendBirdDesk.SendBirdDeskErrorStatic;
 
-  init(SendBird: Object): void;
-  authenticate(userId: String, callback: SendBirdDesk.Callback): void;
-  authenticate(userId: String, accessToken: String, callback: SendBirdDesk.Callback): void;
-  isDeskChannel(channel: SendBirdDesk.GroupChannel): Boolean;
+  init(SendBird: object): void;
+  authenticate(userId: string, callback: SendBirdDesk.Callback): void;
+  authenticate(userId: string, accessToken: string, callback: SendBirdDesk.Callback): void;
+  isDeskChannel(channel: SendBirdDesk.GroupChannel): boolean;
   setDebugMode(): void;
-  setCustomerCustomFields(customFields: Object, callback: SendBirdDesk.Callback): void;
+  setCustomerCustomFields(customFields: object, callback: SendBirdDesk.Callback): void;
 }
 
 declare namespace SendBirdDesk {
   interface GroupChannel {
-    url: String;
-    name: String;
-    customType: String;
+    url: string;
+    name: string;
+    customType: string;
   }
-  type Callback = (res: Object, error: Error) => void;
+  type Callback = (res: object, error: Error) => void;
   type TicketCallback = (ticket: TicketInstance, error: Error) => void;
   type TicketArrayCallback = (list: Array<TicketInstance>, error: Error) => void;
 
   interface AgentStatic {
-    new (json: Object): AgentInstance;
+    new (json: object): AgentInstance;
   }
   interface AgentInstance {
-    userId: String;
-    name: String;
-    profileUrl: String;
-    fetchFromJSON(json: Object): void;
+    userId: string;
+    name: string;
+    profileUrl: string;
+    fetchFromJSON(json: object): void;
   }
   interface TicketStatic {
     Status: TicketStatus;
-    isStatus(val: String): Boolean;
-    clearCache(channelUrl: String): void;
-    create(title: String, name: String, callback: TicketCallback): void;
-    create(title: String, name: String, groupKey: String, customFields: Object, callback: TicketCallback): void;
+    isStatus(val: string): boolean;
+    clearCache(channelUrl: string): void;
+    create(title: string, name: string, callback: TicketCallback): void;
+    create(title: string, name: string, groupKey: string, customFields: object, callback: TicketCallback): void;
     getOpenCount(callback: Callback): void;
-    getByChannelUrl(channelUrl: String, callback: TicketCallback): void;
-    getOpenedList(offset: Number, callback: TicketArrayCallback): void;
-    getOpenedList(offset: Number, customFieldFilter: Object, callback: TicketArrayCallback): void;
-    getClosedList(offset: Number, callback: TicketArrayCallback): void;
-    getClosedList(offset: Number, customFieldFilter: Object, callback: TicketArrayCallback): void;
-    getUrlPreview(url: String, callback: Callback): void;
-    confirmEndOfChat(message: Object, confirmYN: String, callback: Callback): void;
-    submitFeedback(message: Object, score: Number, comment: String, callback: Callback): void;
-    new (json: Object): TicketInstance;
+    getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
+    getOpenedList(offset: number, callback: TicketArrayCallback): void;
+    getOpenedList(offset: number, customFieldFilter: object, callback: TicketArrayCallback): void;
+    getClosedList(offset: number, callback: TicketArrayCallback): void;
+    getClosedList(offset: number, customFieldFilter: object, callback: TicketArrayCallback): void;
+    getUrlPreview(url: string, callback: Callback): void;
+    confirmEndOfChat(message: object, confirmYN: string, callback: Callback): void;
+    submitFeedback(message: object, score: number, comment: string, callback: Callback): void;
+    new (json: object): TicketInstance;
   }
-  type TicketStatus = {
-    INITIALIZED: String;
-    UNASSIGNED: String;
-    ASSIGNED: String;
-    OPEN: String;
-    CLOSED: String;
-  };
+  enum TicketStatus {
+    INITIALIZED = "INITIALIZED",
+    UNASSIGNED = "UNASSIGNED",
+    ASSIGNED = "ASSIGNED",
+    OPEN = "OPEN",
+    CLOSED = "CLOSED"
+  }
   interface TicketInstance {
-    id: String;
-    title: String;
+    id: string;
+    title: string;
     status: TicketStatus;
-    info: Object;
+    info: object;
     agent: AgentInstance;
-    customer: Object;
-    channel: Object;
-    channelUrl: String;
-    customFields: Object;
-    updatedAt: Number;
-    fetchFromJSON(json: Object): void;
+    customer: object;
+    channel: object;
+    channelUrl: string;
+    customFields: object;
+    updatedAt: number;
+    fetchFromJSON(json: object): void;
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
   }
@@ -87,25 +85,25 @@ declare namespace SendBirdDesk {
     FeedbackState: MessageFeedbackState;
   };
   type MessageCustomType = {
-    RICH_MESSAGE: String;
-    ADMIN_MESSAGE: String;
+    RICH_MESSAGE: string;
+    ADMIN_MESSAGE: string;
   };
   type MessageDataType = {
-    TICKET_INQUIRE_CLOSURE: String;
-    TICKET_ASSIGN: String;
-    TICKET_TRANSFER: String;
-    TICKET_CLOSE: String;
-    TICKET_FEEDBACK: String;
-    URL_PREVIEW: String;
+    TICKET_INQUIRE_CLOSURE: string;
+    TICKET_ASSIGN: string;
+    TICKET_TRANSFER: string;
+    TICKET_CLOSE: string;
+    TICKET_FEEDBACK: string;
+    URL_PREVIEW: string;
   };
   type MessageClosureState = {
-    WAITING: String;
-    CONFIRMED: String;
-    DECLINED: String;
+    WAITING: string;
+    CONFIRMED: string;
+    DECLINED: string;
   };
   type MessageFeedbackState = {
-    WAITING: String;
-    CONFIRMED: String;
+    WAITING: string;
+    CONFIRMED: string;
   };
   interface SendBirdDeskErrorStatic {}
 }
