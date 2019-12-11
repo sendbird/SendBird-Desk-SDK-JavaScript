@@ -2,7 +2,7 @@
 
 ### v1.0.9(Dec 11, 2019)
 
-- Bug-fix in `Ticket.create()`.
+- Bug-fix in `Ticket.getOpenedList()` and `Ticket.getClosedList()`.
 
 ### v1.0.8(Aug 23, 2019)
 
