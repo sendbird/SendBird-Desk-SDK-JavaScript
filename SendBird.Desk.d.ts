@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.8
+ * Type Definitions for SendBird Desc SDK v1.0.9
  * homepage: https://sendbird.com/
  */
 export = SendBirdDesk;
