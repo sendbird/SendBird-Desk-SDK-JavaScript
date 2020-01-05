@@ -1,5 +1,10 @@
 ## Change Log
 
+### v1.0.10(Jan 3, 2020)
+
+- Added `setCustomFields(customFields, callback)` in `Ticket`.
+- Added `setPriority(priority, callback)` in `Ticket`.
+
 ### v1.0.9(Dec 11, 2019)
 
 - Bug-fix in `Ticket.getOpenedList()` and `Ticket.getClosedList()`.

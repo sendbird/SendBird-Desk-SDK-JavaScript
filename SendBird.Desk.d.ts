@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.9
+ * Type Definitions for SendBird Desc SDK v1.0.10
  * homepage: https://sendbird.com/
  */
 export = SendBirdDesk;
@@ -44,7 +44,16 @@ declare namespace SendBirdDesk {
     isStatus(val: string): boolean;
     clearCache(channelUrl: string): void;
     create(title: string, name: string, callback: TicketCallback): void;
+    create(title: string, name: string, groupKey: string, callback: TicketCallback): void;
     create(title: string, name: string, groupKey: string, customFields: object, callback: TicketCallback): void;
+    create(
+      title: string,
+      name: string,
+      groupKey: string,
+      customFields: object,
+      priority: TicketPriority,
+      callback: TicketCallback
+    ): void;
     getOpenCount(callback: Callback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
@@ -57,17 +66,25 @@ declare namespace SendBirdDesk {
     new (json: object): TicketInstance;
   }
   enum TicketStatus {
-    INITIALIZED = "INITIALIZED",
-    UNASSIGNED = "UNASSIGNED",
-    ASSIGNED = "ASSIGNED",
-    OPEN = "OPEN",
-    CLOSED = "CLOSED"
+    INITIALIZED = 'INITIALIZED',
+    PROACTIVE = 'PROACTIVE',
+    UNASSIGNED = 'UNASSIGNED',
+    ASSIGNED = 'ASSIGNED',
+    OPEN = 'OPEN',
+    CLOSED = 'CLOSED'
+  }
+  enum TicketPriority {
+    URGENT = 'URGENT',
+    HIGH = 'HIGH',
+    MEDIUM = 'MEDIUM',
+    LOW = 'LOW'
   }
   interface TicketInstance {
     id: string;
     title: string;
     status: TicketStatus;
     info: object;
+    priority: TicketPriority;
     agent: AgentInstance;
     customer: object;
     channel: object;
@@ -77,6 +94,8 @@ declare namespace SendBirdDesk {
     fetchFromJSON(json: object): void;
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
+    setPriority(priority: TicketPriority, callback: SendBirdDesk.Callback): void;
+    setCustomFields(customFields: object, callback: SendBirdDesk.Callback): void;
   }
   type MessageStatic = {
     CustomType: MessageCustomType;
