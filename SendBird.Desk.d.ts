@@ -1,9 +1,8 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.10
+ * Type Definitions for SendBird Desc SDK v1.0.11
  * homepage: https://sendbird.com/
  */
-export = SendBirdDesk;
-export as namespace SendBirdDesk;
+export default SendBirdDeskStatic;
 
 interface SendBirdDeskStatic {
   version: string;
@@ -46,14 +45,7 @@ declare namespace SendBirdDesk {
     create(title: string, name: string, callback: TicketCallback): void;
     create(title: string, name: string, groupKey: string, callback: TicketCallback): void;
     create(title: string, name: string, groupKey: string, customFields: object, callback: TicketCallback): void;
-    create(
-      title: string,
-      name: string,
-      groupKey: string,
-      customFields: object,
-      priority: TicketPriority,
-      callback: TicketCallback
-    ): void;
+    create(title: string, name: string, groupKey: string, customFields: object, priority: TicketPriority, callback: TicketCallback): void;
     getOpenCount(callback: Callback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
@@ -66,18 +58,18 @@ declare namespace SendBirdDesk {
     new (json: object): TicketInstance;
   }
   enum TicketStatus {
-    INITIALIZED = 'INITIALIZED',
-    PROACTIVE = 'PROACTIVE',
-    UNASSIGNED = 'UNASSIGNED',
-    ASSIGNED = 'ASSIGNED',
-    OPEN = 'OPEN',
-    CLOSED = 'CLOSED'
+    INITIALIZED = "INITIALIZED",
+    PROACTIVE = "PROACTIVE",
+    UNASSIGNED = "UNASSIGNED",
+    ASSIGNED = "ASSIGNED",
+    OPEN = "OPEN",
+    CLOSED = "CLOSED"
   }
   enum TicketPriority {
-    URGENT = 'URGENT',
-    HIGH = 'HIGH',
-    MEDIUM = 'MEDIUM',
-    LOW = 'LOW'
+    URGENT = "URGENT",
+    HIGH = "HIGH",
+    MEDIUM = "MEDIUM",
+    LOW = "LOW"
   }
   interface TicketInstance {
     id: string;

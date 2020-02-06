@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.11(Feb 6, 2020)
+
+- TypeScript d.ts interface fix.
+
 ### v1.0.10(Jan 3, 2020)
 
 - Added `setCustomFields(customFields, callback)` in `Ticket`.
