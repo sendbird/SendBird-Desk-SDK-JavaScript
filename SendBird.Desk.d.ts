@@ -1,25 +1,27 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.11
+ * Type Definitions for SendBird Desc SDK v1.0.12
  * homepage: https://sendbird.com/
  */
-export default SendBirdDeskStatic;
+export default SendBirdDesk;
+
+declare const SendBirdDesk: SendBirdDeskStatic;
 
 interface SendBirdDeskStatic {
   version: string;
-  Agent: SendBirdDesk.AgentStatic;
-  Ticket: SendBirdDesk.TicketStatic;
-  Message: SendBirdDesk.MessageStatic;
-  Error: SendBirdDesk.SendBirdDeskErrorStatic;
+  Agent: SendBirdDeskInstance.AgentStatic;
+  Ticket: SendBirdDeskInstance.TicketStatic;
+  Message: SendBirdDeskInstance.MessageStatic;
+  Error: SendBirdDeskInstance.SendBirdDeskErrorStatic;
 
   init(SendBird: object): void;
-  authenticate(userId: string, callback: SendBirdDesk.Callback): void;
-  authenticate(userId: string, accessToken: string, callback: SendBirdDesk.Callback): void;
-  isDeskChannel(channel: SendBirdDesk.GroupChannel): boolean;
+  authenticate(userId: string, callback: SendBirdDeskInstance.Callback): void;
+  authenticate(userId: string, accessToken: string, callback: SendBirdDeskInstance.Callback): void;
+  isDeskChannel(channel: SendBirdDeskInstance.GroupChannel): boolean;
   setDebugMode(): void;
-  setCustomerCustomFields(customFields: object, callback: SendBirdDesk.Callback): void;
+  setCustomerCustomFields(customFields: object, callback: SendBirdDeskInstance.Callback): void;
 }
 
-declare namespace SendBirdDesk {
+declare namespace SendBirdDeskInstance {
   interface GroupChannel {
     url: string;
     name: string;
@@ -86,8 +88,8 @@ declare namespace SendBirdDesk {
     fetchFromJSON(json: object): void;
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
-    setPriority(priority: TicketPriority, callback: SendBirdDesk.Callback): void;
-    setCustomFields(customFields: object, callback: SendBirdDesk.Callback): void;
+    setPriority(priority: TicketPriority, callback: SendBirdDeskInstance.Callback): void;
+    setCustomFields(customFields: object, callback: SendBirdDeskInstance.Callback): void;
   }
   type MessageStatic = {
     CustomType: MessageCustomType;
