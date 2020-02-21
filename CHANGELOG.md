@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.13(Feb 21, 2020)
+
+- TypeScript d.ts interface refactoring.
+
 ### v1.0.12(Feb 14, 2020)
 
 - TypeScript d.ts interface fix.
