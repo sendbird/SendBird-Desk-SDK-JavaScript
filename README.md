@@ -19,6 +19,7 @@ Desk JavaScript SDK provides customer-side integration on your own application, 
   - [Confirm end of chat](#confirm-end-of-chat)
   - [Reopen a closed ticket](#reopen-a-closed-ticket)
   - [Ticket Feedback](#ticket-feedback)
+  - [Related channels](#related-channels)
   - [URL preview](#url-preview)
 
 ## Installation
@@ -63,9 +64,9 @@ Customer information could be kept in `customFields`. `setCustomerCustomFields()
 SendBirdDesk.setCustomerCustomFields(
   {
     gender: "male",
-    age: 20
+    age: 20,
   },
-  err => {
+  (err) => {
     if (!err) {
       // customer's customFields is rightly set
       // (or a certain key could get ignored if the key is not defined yet)
@@ -97,7 +98,7 @@ Ticket.create(
   {
     text: "hello",
     number: 14,
-    select: "option2"
+    select: "option2",
   }, // customFields
   (ticket, err) => {
     // Ticket is created with groupKey 'cs-team-1' and customFields.
@@ -244,6 +245,22 @@ channelHandler.onMessageUpdated = (channel, message) => {
     }
   });
 };
+```
+
+## Related channels
+
+You can link certain channels to a ticket. Then the ticket would have `relatedChannels` property which contains the `channelUrl` and its `name`. In order to relate the channels to a ticket, use `ticket.setRelatedChannelUrls()` for the update, or set the `relatedChannelUrls` parameter at the time of ticket creation.
+
+```js
+Ticket.create(title, name, groupKey, customFields, priority, relatedChannelUrls, (ticket, err) => {
+  // the created ticket will have `relatedChannels` property with the channel information that you provide.
+});
+```
+
+```js
+ticket.setRelatedChannelUrls(relatedChannelUrls, (ticket, err) => {
+  // the `relatedChannels` property has been updated.
+});
 ```
 
 ## URL preview
