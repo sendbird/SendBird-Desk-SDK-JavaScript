@@ -1,5 +1,10 @@
 ## Change Log
 
+### v1.0.14(Apr 27, 2020)
+
+- Added `setRelatedCHannelUrls(channelUrls, callback)` in `Ticket`.
+- Minor bug-fixes in response payload.
+
 ### v1.0.13(Feb 21, 2020)
 
 - TypeScript d.ts interface refactoring.

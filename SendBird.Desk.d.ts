@@ -1,19 +1,23 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.13
+ * Type Definitions for SendBird Desc SDK v1.0.14
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
 
 export as namespace SendBirdDesk;
-export = SendBirdDesk;
+export { SendBirdDesk, Ticket, Agent, RelatedChannel };
 
 declare const SendBirdDesk: SendBirdDeskStatic;
+declare const Ticket: SendBirdDesk.TicketStatic;
+declare const Agent: SendBirdDesk.AgentStatic;
+declare const RelatedChannel: SendBirdDesk.RelatedChannelStatic;
 
 interface SendBirdDeskStatic {
   version: string;
   Ticket: SendBirdDesk.TicketStatic;
   Agent: SendBirdDesk.AgentStatic;
   Message: SendBirdDesk.MessageStatic;
+  RelatedChannel: SendBirdDesk.RelatedChannelStatic;
   Error: SendBirdDesk.SendBirdDeskErrorStatic;
 
   init(SendBird: object): void;
@@ -79,6 +83,15 @@ declare namespace SendBirdDesk {
       priority: TicketPriority,
       callback: TicketCallback
     ): void;
+    create(
+      title: string,
+      name: string,
+      groupKey: string,
+      customFields: object,
+      priority: TicketPriority,
+      relatedChannelUrls: Array<string>,
+      callback: TicketCallback
+    ): void;
     getOpenCount(callback: CommonCallback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
@@ -103,10 +116,11 @@ declare namespace SendBirdDesk {
     id: string;
     title: string;
     status: TicketStatus;
-    info: object;
-    priority: TicketPriority;
     agent: Agent;
     customer: object;
+    info: object;
+    priority: TicketPriority;
+    relatedChannels: Array<RelatedChannel>;
     channel: object;
     channelUrl: string;
     customFields: object;
@@ -115,6 +129,7 @@ declare namespace SendBirdDesk {
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
     setPriority(priority: TicketPriority, callback: CommonCallback): void;
+    setRelatedChannelUrls(relatedChannelUrls: Array<string>, callback: CommonCallback): void;
     setCustomFields(customFields: object, callback: CommonCallback): void;
   }
   interface AgentStatic {
@@ -124,6 +139,14 @@ declare namespace SendBirdDesk {
     userId: string;
     name: string;
     profileUrl: string;
+    fetchFromJSON(json: object): void;
+  }
+  interface RelatedChannelStatic {
+    new (json: object): Agent;
+  }
+  interface RelatedChannel {
+    name: string;
+    channelUrl: string;
     fetchFromJSON(json: object): void;
   }
   interface MessageStatic {
