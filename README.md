@@ -162,7 +162,7 @@ Rich message is a special message that holds custom content. You can distinguish
 
 ## Confirm end of chat
 
-Confirm end of chat message is initiated from the agent to inquire closure of ticket. The message has 3 states which are `WAITING`, `CONFIRMED`, `DECLIEND`. When agent sends confirm end of chat message, its state is set to `WAITING`. Customer can answer to the inquiry as `YES` or `NO` which leads to `CONFIRMED` state and `DECLINED` state accordingly. You can check the state by looking `message.data`. The format looks like below:
+Confirm end of chat message is initiated from the agent to inquire closure of ticket. The message has 3 states which are `WAITING`, `CONFIRMED`, `DECLINED`. When agent sends confirm end of chat message, its state is set to `WAITING`. Customer can answer to the inquiry as `YES` or `NO` which leads to `CONFIRMED` state and `DECLINED` state accordingly. You can check the state by looking `message.data`. The format looks like below:
 
 ```js
 {
@@ -190,8 +190,8 @@ channelHandler.onMessageUpdated = (channel, message) => {
         case SendBirdDesk.Message.ClosureState.CONFIRMED:
           // do something on CONFIRMED
           break;
-        case SendBirdDesk.Message.ClosureState.DECLIND:
-          // do something on DECLIND
+        case SendBirdDesk.Message.ClosureState.DECLINED:
+          // do something on DECLINED
           break;
       }
     }
