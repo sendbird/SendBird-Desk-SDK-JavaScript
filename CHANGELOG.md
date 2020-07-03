@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.15(Jul 3, 2020)
+
+- `SendBird.Desk.d.ts` to export `SendBirdDesk` as default.
+
 ### v1.0.14(Apr 27, 2020)
 
 - Added `setRelatedCHannelUrls(channelUrls, callback)` in `Ticket`.

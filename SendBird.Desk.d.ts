@@ -1,11 +1,11 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.14
+ * Type Definitions for SendBird Desc SDK v1.0.15
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
 
-export as namespace SendBirdDesk;
-export { SendBirdDesk, Ticket, Agent, RelatedChannel };
+export default SendBirdDesk;
+export { Ticket, Agent, RelatedChannel };
 
 declare const SendBirdDesk: SendBirdDeskStatic;
 declare const Ticket: SendBirdDesk.TicketStatic;
@@ -110,7 +110,7 @@ declare namespace SendBirdDesk {
       comment: string,
       callback: CommonCallback
     ): void;
-    new (json: object): Ticket;
+    new(json: object): Ticket;
   }
   interface Ticket {
     id: string;
@@ -133,7 +133,7 @@ declare namespace SendBirdDesk {
     setCustomFields(customFields: object, callback: CommonCallback): void;
   }
   interface AgentStatic {
-    new (json: object): Agent;
+    new(json: object): Agent;
   }
   interface Agent {
     userId: string;
@@ -142,7 +142,7 @@ declare namespace SendBirdDesk {
     fetchFromJSON(json: object): void;
   }
   interface RelatedChannelStatic {
-    new (json: object): Agent;
+    new(json: object): Agent;
   }
   interface RelatedChannel {
     name: string;
@@ -155,5 +155,5 @@ declare namespace SendBirdDesk {
     ClosureState: MessageClosureState;
     FeedbackState: MessageFeedbackState;
   }
-  interface SendBirdDeskErrorStatic {}
+  interface SendBirdDeskErrorStatic { }
 }
