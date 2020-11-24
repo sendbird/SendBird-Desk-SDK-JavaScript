@@ -98,12 +98,12 @@ Install the Desk SDK with npm by entering the command below on the command line.
 ~$ npm install --save sendbird-desk
 ```
 
-Automatically download our Desk SDK with just an npm install command by adding sendbird-desk dependency to the package.json file of your project.
+Automatically download our Desk SDK with just an `npm` install command by adding `sendbird-desk` dependency to the `package.json` file of your project.
  
 Download the latest Desk SDK for JavaScript, copy the Desk SDK to your project classpath (most commonly the lib/ directory), and then include the Desk SDK file to your working file.
 
 ```javascript
-<script src="lib/SendBird.min.js"></script>
+<script src="lib/SendBird.Desk.min.js"></script>
 ```
 
 <br />
