@@ -402,10 +402,10 @@ You can send a message to customers right after closing a ticket to ask about th
 |WAITING|Set when an agent sends a customer feedback request message.|
 |CONFIRMED|Set when a customer sends a response.|
 
-When a customer replies to the message, their score and comment for the ticket are sent to Sendbird server by calling the `Ticket.submitFeedback()` method. Then, the state of the confirmation request message is changed to `CONFIRMED`.
+When a customer replies to the message, their score and comment for the ticket are sent to Sendbird server by calling the `ticket.submitFeedback()` method. Then, the state of the confirmation request message is changed to `CONFIRMED`.
 
 ```javascript
-Ticket.submitFeedback(USER_MESSAGE, SCORE, COMMENT, (ticket, error) => {
+ticket.submitFeedback(USER_MESSAGE, SCORE, COMMENT, (ticket, error) => {
     if (error) throw error;
 });
 ```
