@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.16(DEC 1, 2020)
+
+- Added `close()` in `Ticket`.
+
 ### v1.0.15(Jul 3, 2020)
 
 - `SendBird.Desk.d.ts` to export `SendBirdDesk` as default.

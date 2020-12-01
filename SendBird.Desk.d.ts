@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.15
+ * Type Definitions for SendBird Desc SDK v1.0.16
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
@@ -128,6 +128,7 @@ declare namespace SendBirdDesk {
     fetchFromJSON(json: object): void;
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
+    close(callback: TicketCallback): void;
     setPriority(priority: TicketPriority, callback: CommonCallback): void;
     setRelatedChannelUrls(relatedChannelUrls: Array<string>, callback: CommonCallback): void;
     setCustomFields(customFields: object, callback: CommonCallback): void;
