@@ -115,7 +115,7 @@ declare namespace SendBirdDesk {
   interface Ticket {
     id: string;
     title: string;
-    status: TicketStatus;
+    status: string;
     agent: Agent;
     customer: object;
     info: object;

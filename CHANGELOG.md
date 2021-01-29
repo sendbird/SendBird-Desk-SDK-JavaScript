@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.17(JAN 29, 2021)
+
+- (TypeScript) Fixed the type of `status` in `Ticket`.
+
 ### v1.0.16(DEC 1, 2020)
 
 - Added `close()` in `Ticket`.
