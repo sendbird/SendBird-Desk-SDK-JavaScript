@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.16
+ * Type Definitions for SendBird Desc SDK v1.0.18
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
@@ -92,6 +92,16 @@ declare namespace SendBirdDesk {
       relatedChannelUrls: Array<string>,
       callback: TicketCallback
     ): void;
+    create(
+      title: string,
+      name: string,
+      groupKey: string,
+      customFields: object,
+      priority: TicketPriority,
+      relatedChannelUrls: Array<string>,
+      botKey: string,
+      callback: TicketCallback
+    ): void;
     getOpenCount(callback: CommonCallback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
@@ -128,10 +138,13 @@ declare namespace SendBirdDesk {
     fetchFromJSON(json: object): void;
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
+    cancel(callback: TicketCallback): void;
+    cancel(groupKey: string, callback: TicketCallback): void;
     close(callback: TicketCallback): void;
     setPriority(priority: TicketPriority, callback: CommonCallback): void;
     setRelatedChannelUrls(relatedChannelUrls: Array<string>, callback: CommonCallback): void;
     setCustomFields(customFields: object, callback: CommonCallback): void;
+    selectQuestion(faqFileId: number, question: string, callback: CommonCallback): void;
   }
   interface AgentStatic {
     new(json: object): Agent;

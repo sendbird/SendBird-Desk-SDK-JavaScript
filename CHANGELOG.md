@@ -1,5 +1,11 @@
 ## Change Log
 
+### v1.0.18(MAY 21, 2021)
+
+- Added `botKey` in `Ticket.create()`.
+- Added `cancel()` in `Ticket`.
+- Added `selectQuestion()` in `Ticket`.
+
 ### v1.0.17(JAN 29, 2021)
 
 - (TypeScript) Fixed the type of `status` in `Ticket`.
