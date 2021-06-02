@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.19(JUN 2, 2021)
+
+- Minor internal update.
+
 ### v1.0.18(MAY 21, 2021)
 
 - Added `botKey` in `Ticket.create()`.

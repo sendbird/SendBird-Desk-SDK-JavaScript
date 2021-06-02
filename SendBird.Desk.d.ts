@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.18
+ * Type Definitions for SendBird Desc SDK v1.0.19
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
@@ -139,7 +139,7 @@ declare namespace SendBirdDesk {
     refresh(callback: TicketCallback): void;
     reopen(callback: TicketCallback): void;
     cancel(callback: TicketCallback): void;
-    cancel(groupKey: string, callback: TicketCallback): void;
+    cancel(groupKeyForTransfer: string, callback: TicketCallback): void;
     close(callback: TicketCallback): void;
     setPriority(priority: TicketPriority, callback: CommonCallback): void;
     setRelatedChannelUrls(relatedChannelUrls: Array<string>, callback: CommonCallback): void;
