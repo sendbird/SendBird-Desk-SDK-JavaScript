@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.19
+ * Type Definitions for SendBird Desc SDK v1.0.20
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';

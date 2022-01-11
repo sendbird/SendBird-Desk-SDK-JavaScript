@@ -1,5 +1,9 @@
 ## Change Log
 
+### v1.0.20(JAN 11, 2022)
+
+- Bug-fix in sendbird version comparison logic
+
 ### v1.0.19(JUN 2, 2021)
 
 - Minor internal update.
