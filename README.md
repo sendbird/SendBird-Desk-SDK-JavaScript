@@ -459,7 +459,9 @@ closedTicket.reopen((openTicket, error) => {
 
 ### Retrieve a list of tickets 
 
-You can retrieve a list of the current customer’s open and closed tickets by using the `Ticket.getOpenedList()` and `Ticket.getClosedList()`. 
+You can retrieve a list of the current customer’s open and closed tickets by using the `Ticket.getOpenedList()` and `Ticket.getClosedList()`.
+
+Use `getAllTickets()` to fetch all tickets without open/closed distinction (v1.0.21)
 
 > **Note**: Only 10 tickets can be retrieved per request by message creation time in descending order.
 

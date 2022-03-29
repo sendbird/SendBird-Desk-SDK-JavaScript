@@ -1,8 +1,12 @@
 ## Change Log
 
+### v1.0.21(Mar 29, 2022)
+
+- Add `getAllTickets` interface in `Ticket`.
+
 ### v1.0.20(JAN 11, 2022)
 
-- Bug-fix in sendbird version comparison logic
+- Bug-fix in sendbird version comparison logic.
 
 ### v1.0.19(JUN 2, 2021)
 
