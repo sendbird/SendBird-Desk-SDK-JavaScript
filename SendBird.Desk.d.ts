@@ -104,6 +104,7 @@ declare namespace SendBirdDesk {
     ): void;
     getOpenCount(callback: CommonCallback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
+    getByChannelUrl(channelUrl: string, cachingEnabled: boolean , callback: TicketCallback): void;
     getAllTickets(offset: number, callback: TicketArrayCallback): void;
     getAllTickets(offset: number, customFieldFilter: object, callback: TicketArrayCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
