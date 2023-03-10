@@ -1,5 +1,19 @@
 ## Change Log
 
+### v1.0.23(Mar 10, 2023)
+
+feat: add Ticket.getList()
+Add new API to get by groups, otherwise, we have to modify other methods to
+handle callback to the end& JS doesnt really have first class support for polymorphism
+```
+* @param {integer} filters.offset - list offset.
+* @param {object} filters.customFieldFilter - customField filter.
+* @param {string} filters.group - group key(to filter tickets by a team).
+* @param {string} filters.status - status to get tickets. ('all', 'CLOSED', 'OPEN').
+* @param {function} callback - Function(list:Array<Ticket>, err:Error)
+Ticket.getList(params, callback)
+```
+
 ### v1.0.21(Mar 29, 2022)
 
 - Add `getAllTickets` interface in `Ticket`.

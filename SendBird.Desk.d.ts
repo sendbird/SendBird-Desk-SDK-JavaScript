@@ -1,5 +1,5 @@
 /**
- * Type Definitions for SendBird Desc SDK v1.0.21
+ * Type Definitions for SendBird Desc SDK v1.0.23
  * homepage: https://sendbird.com/
  */
 import SendBird from 'sendbird';
@@ -68,6 +68,13 @@ declare namespace SendBirdDesk {
   type TicketCallback = (ticket: Ticket, error: Error) => void;
   type TicketArrayCallback = (list: Array<Ticket>, error: Error) => void;
 
+  type GetTicketListParams = {
+    offset: integer;
+    customFieldFilter: object;
+    group: string;
+    status: string;
+  }
+
   interface TicketStatic {
     Status: TicketStatus;
     isStatus(val: string): boolean;
@@ -105,6 +112,7 @@ declare namespace SendBirdDesk {
     getOpenCount(callback: CommonCallback): void;
     getByChannelUrl(channelUrl: string, callback: TicketCallback): void;
     getByChannelUrl(channelUrl: string, cachingEnabled: boolean , callback: TicketCallback): void;
+    getList(params: GetTicketListParams, callback: TicketArrayCallback): void;
     getAllTickets(offset: number, callback: TicketArrayCallback): void;
     getAllTickets(offset: number, customFieldFilter: object, callback: TicketArrayCallback): void;
     getOpenedList(offset: number, callback: TicketArrayCallback): void;
