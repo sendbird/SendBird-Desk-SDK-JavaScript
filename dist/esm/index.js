@@ -1124,7 +1124,6 @@ var Ticket = /** @class */ (function () {
                                 }
                             }
                         });
-                        Logger.write("[REQ] ticket list:" + tickets);
                         _a.label = 4;
                     case 4: return [2 /*return*/, tickets];
                 }
