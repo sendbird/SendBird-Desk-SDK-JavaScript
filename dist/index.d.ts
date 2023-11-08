@@ -174,12 +174,14 @@ export interface TicketParams {
 	recentAssignment?: {
 		agent?: AgentParams;
 	};
+	proactiveChatCreatedBy?: AgentParams;
 	customer?: Customer;
 	customFields?: {
 		key: string;
 		value: any;
 	}[];
 	group?: number;
+	firstResponseTime?: number;
 	relatedChannels?: string;
 	updatedAt?: number;
 }
@@ -339,9 +341,11 @@ export declare class Ticket implements TicketClass {
 	info: object | null;
 	priority: TicketPriority;
 	agent: Agent | null;
+	proactiveChatCreatedBy: Agent | null;
 	customer: Customer | null;
 	customFields: object;
 	group: number;
+	firstResponseTime: number;
 	relatedChannels: RelatedChannel[];
 	channel: GroupChannel;
 	channelUrl: string;

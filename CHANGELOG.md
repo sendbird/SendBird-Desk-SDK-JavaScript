@@ -1,5 +1,10 @@
 ## Change Log
 
+### v1.1.2(Nov 8, 2023)
+
+- Added `proactiveChatCreatedBy` in `Ticket`
+- Added `firstResponseTime` in `Ticket`
+
 ### v1.1.0(Aug 23, 2023)
 
 - Convert all sourcecode to TS
