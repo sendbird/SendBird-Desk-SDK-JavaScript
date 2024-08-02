@@ -1,6 +1,6 @@
 {
   "name": "sendbird-desk",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "description": "SendBird Desk SDK for JavaScript",
   "author": "SendBird",
   "license": "see LICENSE.md",
@@ -16,7 +16,8 @@
     "node": "18.x"
   },
   "type": "module",
-  "main": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
   "peerDependencies": {
     "@sendbird/chat": "^4.9.6",
