@@ -137,7 +137,7 @@ declare const TicketPriorityMap: {
 	readonly MEDIUM: "MEDIUM";
 	readonly LOW: "LOW";
 };
-export type TicketPriority = typeof TicketPriorityMap[keyof typeof TicketPriorityMap];
+export type TicketPriority = (typeof TicketPriorityMap)[keyof typeof TicketPriorityMap];
 export type Customer = {
 	id: number;
 	sendbirdId: string;
@@ -154,7 +154,7 @@ declare const TicketStatusMap: {
 	readonly OPEN: "OPEN";
 	readonly CLOSED: "CLOSED";
 };
-export type TicketStatus = typeof TicketStatusMap[keyof typeof TicketStatusMap];
+export type TicketStatus = (typeof TicketStatusMap)[keyof typeof TicketStatusMap];
 export interface TicketCreateParams {
 	title: string;
 	name: string;
@@ -714,17 +714,14 @@ declare class Message {
 	 */
 	static get UrlRegExp(): RegExp;
 }
-export type SbDeskAuthUserId = (userId: string) => void;
-export type SbDeskAuthUserIdCb = (userId: string, cb: () => void) => void;
-export type SbDeskAuthUserIdToken = (userId: string, accessToken: string) => void;
-export type SbDeskAuthUserIdTokenCb = (userId: string, accessToken: string, cb?: () => void) => void;
-export type SendbirdDeskAuthType = OverloadParameters<SbDeskAuthUserId | SbDeskAuthUserIdCb | SbDeskAuthUserIdToken | SbDeskAuthUserIdTokenCb>;
+export type AuthCallback = () => void;
 export type SendbirdAuthParamsMap = {
 	userId: string;
 	accessToken: string;
-	cb: () => void;
+	language?: string;
+	cb: AuthCallback;
 };
-export type CusotmerResponseRaw = {
+export type CustomerResponseRaw = {
 	id: number;
 	key: string;
 	value: string;
@@ -791,10 +788,28 @@ export default class SendbirdDesk {
 	 * @since 1.0.0
 	 * @desc Authenticate and connect to Desk server.
 	 * @param {string} userId - User ID.
-	 * @param {string=} accessToken - Access token(Optional).
-	 * @param {function} callback - Function() => void.
+	 * @param {function} [callback] - Optional callback function.
 	 */
-	static authenticate(...params: SendbirdDeskAuthType): void;
+	static authenticate(userId: string, callback?: () => void): void;
+	/**
+	 * @static
+	 * @since 1.0.0
+	 * @desc Authenticate and connect to Desk server.
+	 * @param {string} userId - User ID.
+	 * @param {string} accessToken - Access token.
+	 * @param {function} [callback] - Optional callback function.
+	 */
+	static authenticate(userId: string, accessToken: string, callback?: () => void): void;
+	/**
+	 * @static
+	 * @since 1.0.0
+	 * @desc Authenticate and connect to Desk server.
+	 * @param {string} userId - User ID.
+	 * @param {string} accessToken - Access token.
+	 * @param {string} language - Language preference in IETF BCP 47 format (e.g., "ko", "en").
+	 * @param {function} [callback] - Optional callback function with user object and error.
+	 */
+	static authenticate(userId: string, accessToken: string, language: string, callback?: () => void): void;
 	/**
 	 * @ignore
 	 * @private
@@ -831,7 +846,13 @@ export default class SendbirdDesk {
 	 * @since 1.1.0
 	 */
 	static _setCustomerCustomFields<T extends object>(customFields: T): Promise<Partial<T>>;
-	static _resToCustomFields(data: CusotmerResponseRaw[]): CustomerResponseFormatted;
+	static _resToCustomFields(data: CustomerResponseRaw[]): CustomerResponseFormatted;
+	/**
+	 * @param {string} language - Language preference in IETF BCP 47 format (e.g., "ko", "en").
+	 * @param {function} callback - Function(err: Error | null).
+	 * */
+	static setCustomerLanguage(language: string, callback: (err: Error | null) => void): void;
+	static _setCustomerLanguage(language: string): Promise<void>;
 }
 
 export {};
